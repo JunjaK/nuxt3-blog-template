@@ -37,7 +37,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{secrets.GH_PAT}}
           PUBLISH_BRANCH: master
-          PUBLISH_DIR: ./dist
+          PUBLISH_DIR: .output/public
           SCRIPT_MODE: true
       # - run: mv ./dist/.output/public ./
       # - run: mv public docs
