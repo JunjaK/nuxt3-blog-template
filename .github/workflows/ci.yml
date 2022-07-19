@@ -36,7 +36,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         env:
           external_repository: JunjaK/junjak.github.io
-          personal_token: ${{secrets.GH_PAT}}
+          personal_token: ${{secrets.PERSONAL_TOKEN}}
           publish_branch: blog
           publish_dir: .output/public
           script_mode: true
