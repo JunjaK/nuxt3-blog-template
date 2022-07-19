@@ -34,7 +34,7 @@ jobs:
           NODE_ENV: production
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        env:
+        with:
           external_repository: JunjaK/junjak.github.io
           personal_token: ${{secrets.PERSONAL_TOKEN}}
           publish_branch: blog
