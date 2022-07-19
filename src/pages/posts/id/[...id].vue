@@ -3,11 +3,13 @@
     <div>
       Specific Post
     </div>
-   <ContentRenderer :value="data">
-       <template #empty>
-        <p>No content found.</p>
-      </template>
-    </ContentRenderer>
+    <article class="prose prose-stone">
+      <ContentRenderer :value="data">
+          <template #empty>
+           <p>No content found.</p>
+         </template>
+       </ContentRenderer>
+    </article>
   </main>
 </template>
 
