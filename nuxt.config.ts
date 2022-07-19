@@ -34,12 +34,13 @@ export default defineNuxtConfig({
     // presets
     uno: true, // enabled `@unocss/preset-uno`
     icons: true, // enabled `@unocss/preset-icons`
+    attributify: true,
     webFonts: {
       provider: 'google',
       fonts: {
-        'a-gothic': ['Gothic A1', 'sans-serif'],
-        'nanum-gothic': ['Nanum Gothic', 'sans-serif'],
-        dohyeon: ['Do Hyeon', 'sans-serif'],
+        'a-gothic': ['Gothic A1'],
+        'nanum-gothic': ['Nanum Gothic'],
+        dohyeon: ['Do Hyeon'],
         sans: 'Roboto',
       }
     },
