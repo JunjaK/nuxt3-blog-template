@@ -39,7 +39,6 @@ jobs:
           personal_token: ${{secrets.PERSONAL_TOKEN}}
           publish_branch: blog
           publish_dir: .output/public
-          script_mode: true
       - run: touch .nojekyll
 
 
