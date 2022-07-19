@@ -13,13 +13,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - name: Set up Node.js
-        uses: actions/setup-node@master
+        uses: actions/setup-node@v3
         with:
           node-version: 16.14.2
       - name: Cache node_modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: node_modules
           key: ${{runner.OS}}-build-${{hashFiles('**/yarn.lock')}}
@@ -33,13 +33,13 @@ jobs:
         env:
           NODE_ENV: production
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v2.5.0
+        uses: peaceiris/actions-gh-pages@v3
         env:
           external_repository: JunjaK/junjak.github.io
-          PERSONAL_TOKEN: ${{secrets.GH_PAT}}
-          PUBLISH_BRANCH: blog
-          PUBLISH_DIR: .output/public
-          SCRIPT_MODE: true
+          personal_token: ${{secrets.GH_PAT}}
+          publish_branch: blog
+          publish_dir: .output/public
+          script_mode: true
       - run: touch .nojekyll
 
 
