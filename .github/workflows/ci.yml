@@ -36,7 +36,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v2.5.0
         env:
           external_repository: JunjaK/junjak.github.io
-          deploy_key: ${{secrets.GH_PAT}}
+          deploy_key: ${{secrets.ACTIONS_DEPLOY_KEY}}
           PUBLISH_BRANCH: blog
           PUBLISH_DIR: .output/public
           SCRIPT_MODE: true
