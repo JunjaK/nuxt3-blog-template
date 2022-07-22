@@ -1,8 +1,5 @@
 <template>
   <main>
-    <div>
-      Specific Post
-    </div>
     <article class="prose prose-stone">
       <ContentRenderer :value="data">
           <template #empty>
