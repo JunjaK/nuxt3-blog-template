@@ -9,7 +9,8 @@
 <script setup>
 const { data } = await useAsyncData('ContentDoc', () => queryContent('').find())
 const tagObj = {}
-data.value.forEach(e => {
+
+data?.value.forEach(e => {
   const tagSplit = e.tags.split(',')
   tagSplit.forEach(tag => {
     if (tagObj[tag] == null) {
@@ -18,8 +19,5 @@ data.value.forEach(e => {
     tagObj[tag] += 1
   })
 })
-
-console.log(data, tagObj);
-
 
 </script>
