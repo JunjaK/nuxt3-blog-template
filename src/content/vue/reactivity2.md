@@ -1,6 +1,6 @@
 ---
 title: 'Vue Reactivity2'
-desc: 'Reactivity2'
+desc: 'Vue2 Vue3의 Reactivity 성질을 알아보자'
 tags: 'Vue'
 created: '2022-07-30'
 image: /content/1.jpg

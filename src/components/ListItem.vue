@@ -25,7 +25,7 @@
       </div>
 
       <!-- Desc -->
-      <div class="mt-4">
+      <div class="mt-3 flex items-center" style="height: 40px;">
         <p class="font-light text-gray-400 cursor-pointer" 
         @click="movePost(path)"
         >

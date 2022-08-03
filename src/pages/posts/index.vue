@@ -7,7 +7,7 @@
       />
     </div>
 
-    <div class="grid grid-cols-1 gap-8 px-12">
+    <div class="grid grid-cols-1 gap-8 px-2 sm:px-12">
       <ListItem v-for="(item, idx) in listData" :key="idx" :tags="item.tags" :created="item.created" :desc="item.desc"
         :image="item.image" :title="item.title" :path="item.path" />
     </div>
@@ -55,3 +55,6 @@ export default {
 
 
 </script>
+
+<style lang="scss" scoped>
+</style>

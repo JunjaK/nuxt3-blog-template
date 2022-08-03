@@ -21,10 +21,14 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@unocss/nuxt',
   ],
+  buildModules: [
+    // ...
+    '@pinia/nuxt',
+  ],
   content: {
     // https://content.nuxtjs.org/api/configuration
     navigation: {
-      fields: ['navTitle', 'created', 'tags']
+      fields: ['title', 'created', 'tags', 'desc', 'image']
     },
     highlight: {
       // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme

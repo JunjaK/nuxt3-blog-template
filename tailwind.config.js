@@ -5,6 +5,7 @@ module.exports = {
     },
   },
   plugins: [require("@tailwindcss/typography"),require('daisyui')],
+  content: ['content/**/*.{md,yml,json,json5,csv}'],
   daisyui: {
     darkTheme: "customDark",
     themes: [

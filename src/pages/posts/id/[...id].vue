@@ -1,7 +1,7 @@
 <template>
   <main class="h-full p-4">
     <div class="mb-4">
-      Created: {{created}}
+      Created: {{ created }}
     </div>
     <article class="prose prose-stone grid grid-cols-1 content-between">
       <ContentRenderer :value="doc">
