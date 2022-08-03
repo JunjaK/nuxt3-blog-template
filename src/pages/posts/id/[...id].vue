@@ -1,8 +1,19 @@
 <template>
   <main class="h-full p-4">
     <div class="mb-4">
-      Created: {{ created }}
+      <div class="flex mb-1" style="margin-left: 26px;">
+        Tags:
+        <div class="flex ml-3 gap-1">
+          <div v-for="(tag, idx) in tags" class="btn btn-xs btn-primary" :key="idx" @click="clickTag(tag)">
+            {{ tag }}
+          </div>
+        </div>
+      </div>
+      <div>
+        Created: <span class="ml-2">{{ created }}</span>
+      </div>
     </div>
+    <div class="divider"></div>
     <article class="prose prose-stone grid grid-cols-1 content-between">
       <ContentRenderer :value="doc">
         <template #empty>
@@ -10,16 +21,22 @@
         </template>
       </ContentRenderer>
     </article>
+    <div class="divider"></div>
+    <div id="gitalk-container"></div>
   </main>
 </template>
 
 <script>
+import Gitalk from 'gitalk'
+
+
+
 export default {
   name: 'ContentDocs',
   data() {
     return {
       doc: null,
-      tags: null,
+      tags: [],
       created: null,
     }
   },
@@ -29,10 +46,34 @@ export default {
     const [_, mdPath] = path.split('/id')
     const data = await queryContent(mdPath).findOne()
     this.doc = data
-    this.tags = data.tags
+    this.tags = data.tags.split(',')
     this.created = data.created
   },
+  mounted() {
+    const gitalk = new Gitalk({
+      clientID: 'e1e6a662858724bddf1c',
+      clientSecret: '4db6fdcc5181be6e7aadaa04e3a3d747d9d76a44',
+      repo: 'nuxt3-blog-template',      // The repository of store comments,
+      owner: 'Junjak',
+      admin: ['Junjak'],
+      id: 'jeio3i424djfojsdifweeejriewj3434',      // Ensure uniqueness and length less than 50
+      distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+    
+    gitalk.render('gitalk-container')
+
+  },
+  methods: {
+    clickTag(tag) {
+      this.$router.push(`/tags/id/${tag}`)
+    }
+  },
 }
-
-
 </script>
+
+<style lang="scss" scoped>
+.btn {
+  text-transform: unset !important;
+
+}
+</style>

@@ -2,14 +2,13 @@
   <div class="mb-12">
     <div class="mb-6 block">
       <!-- Todo Search with algolia -->
-      <input v-model="typedText" type="text" placeholder="Type to Search" class="input w-full" 
-      @keyup.enter="searchContent"
-      />
+      <input v-model="typedText" type="text" placeholder="Type to Search" class="input w-full"
+        @keyup.enter="searchContent" />
     </div>
 
     <div class="grid grid-cols-1 gap-8 px-2 sm:px-12">
       <ListItem v-for="(item, idx) in listData" :key="idx" :tags="item.tags" :created="item.created" :desc="item.desc"
-        :image="item.image" :title="item.title" :path="item.path" />
+        :image="item.image" :title="item.title" :path="item.path" :loading="loading" />
     </div>
   </div>
 </template>
@@ -21,12 +20,17 @@ export default {
   data() {
     return {
       listData: null,
-      typedText: null
+      typedText: null,
+      loading: false,
     }
   },
   async created() {
+    this.loading = true
     const contentQuery = await queryContent('').find()
-    this.listData =  this.convertData(contentQuery)
+    this.listData = this.convertData(contentQuery)
+    setTimeout(() => {
+      this.loading = false
+    }, 300)
   },
   methods: {
     convertData(data) {
@@ -47,7 +51,7 @@ export default {
 
       return list
     },
-    searchContent(){
+    searchContent() {
       console.log('todo Search', this.typedText);
     }
   },

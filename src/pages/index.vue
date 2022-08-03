@@ -2,30 +2,16 @@
 <div>
 
   <div style="height: 200px">
-    Main
-    <div class="i-tabler-point"></div>
-    <div class="i-tabler-alert-circle"></div>
-    <button class="btn btn-primary">
-      test
-    </button>
-  </div>
-  <div style="height: 200px">
-    Main
-    <button class="btn btn-primary">
-      test
-    </button>
-  </div>
-  <div style="height: 200px">
-    Main
-    <button class="btn btn-primary">
-      test
-    </button>
-  </div>
-  <div style="height: 200px">
-    Main
-    <button class="btn btn-primary">
-      test
-    </button>
+    <div>
+      여기는 통계나 그런 것들?
+    </div>
+    <div>
+      최근 게시물
+    </div>
+    <div>
+      recommend, pinned 
+    </div>
+  
   </div>
 </div>
 </template>

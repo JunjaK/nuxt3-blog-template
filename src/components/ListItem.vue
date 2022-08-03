@@ -1,5 +1,24 @@
 <template>
-  <div class="flex justify-start gap-4 item-container">
+  <div v-if="loading">
+    <div class=" border-gray-700 border-2 shadow rounded-md p-4 w-full item-container">
+      <div class="animate-pulse flex space-x-4 items-center">
+        <div class="rounded-md bg-gray-700 h-18 w-36"></div>
+        <div class="flex-1 space-y-3 py-1">
+          <div class="h-2 bg-gray-700 rounded"></div>
+          <div class="">
+            <div class="grid grid-cols-6 gap-2">
+              <div class="h-2 bg-gray-700 rounded"></div>
+              <div class="h-2 bg-gray-700 rounded"></div>
+              <div class="col-span-4"></div>
+            </div>
+            <div class="h-2 mt-4 mb-2 bg-gray-700 rounded"></div>
+            <div class="h-2 bg-gray-700 rounded"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div v-else class="flex justify-start gap-4 item-container">
     <!-- Image -->
     <div v-if="image != null" class="cursor-pointer" @click="movePost(path)">
       <nuxt-img fit="cover" :src="image" height="110" width="160" />
@@ -26,9 +45,7 @@
 
       <!-- Desc -->
       <div class="mt-3 flex items-center" style="height: 40px;">
-        <p class="font-light text-gray-400 cursor-pointer" 
-        @click="movePost(path)"
-        >
+        <p class="font-light text-gray-400 cursor-pointer" @click="movePost(path)">
           {{ desc }}
         </p>
       </div>
@@ -45,7 +62,8 @@ defineProps({
   desc: String,
   tags: Array,
   created: String,
-  path: String
+  path: String,
+  loading: Boolean
 })
 
 const router = useRouter()
