@@ -28,7 +28,15 @@
 
 <script>
 import Gitalk from 'gitalk'
-
+const gitalk = new Gitalk({
+  clientID: 'e1e6a662858724bddf1c',
+  clientSecret: '4db6fdcc5181be6e7aadaa04e3a3d747d9d76a44',
+  repo: 'nuxt3-blog-template',      // The repository of store comments,
+  owner: 'Junjak',
+  admin: ['Junjak'],
+  id: 'jeio3i424djfojsdifweeejriewj3434',      // Ensure uniqueness and length less than 50
+  distractionFreeMode: false  // Facebook-like distraction free mode
+})
 
 
 export default {
@@ -50,18 +58,9 @@ export default {
     this.created = data.created
   },
   mounted() {
-    const gitalk = new Gitalk({
-      clientID: 'e1e6a662858724bddf1c',
-      clientSecret: '4db6fdcc5181be6e7aadaa04e3a3d747d9d76a44',
-      repo: 'nuxt3-blog-template',      // The repository of store comments,
-      owner: 'Junjak',
-      admin: ['Junjak'],
-      id: 'jeio3i424djfojsdifweeejriewj3434',      // Ensure uniqueness and length less than 50
-      distractionFreeMode: false  // Facebook-like distraction free mode
-    })
-    
-    gitalk.render('gitalk-container')
-
+    setTimeout(() => {
+      gitalk.render('gitalk-container')
+    }, 200);
   },
   methods: {
     clickTag(tag) {
