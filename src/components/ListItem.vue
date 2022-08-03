@@ -21,7 +21,7 @@
   <div v-else class="flex justify-start gap-4 item-container">
     <!-- Image -->
     <div v-if="image != null" class="cursor-pointer" @click="movePost(path)">
-      <nuxt-img fit="cover" :src="image" height="110" width="160" />
+      <nuxt-img fit="cover" :src="image" height="110" width="160" loading="lazy" preload />
     </div>
     <div v-else class="flex justify-center items-center cursor-pointer" style="width: 160px" @click="movePost(path)">
       <div class="i-tabler-photo text-4xl text-gray-400" />
