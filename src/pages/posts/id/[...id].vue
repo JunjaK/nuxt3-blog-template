@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="divider"></div>
-    <article class="prose prose-stone grid grid-cols-1 content-between">
+    <article class="prose prose-stone mx-auto w-full">
       <ContentRenderer :value="doc">
         <template #empty>
           <p>No content found.</p>
