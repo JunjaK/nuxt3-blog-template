@@ -57,5 +57,14 @@ export default defineNuxtConfig({
     shortcuts: [],
     rules: [],
   },
-  vite: {}
-})
+  vite: {
+    server: {
+        proxy: {
+            '/github-api': {
+                target: 'https://api.github.com',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/github-api/, '')
+            }
+        }
+    }
+}})

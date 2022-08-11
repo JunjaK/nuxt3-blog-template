@@ -77,7 +77,7 @@ const postLink = computed(() => {
 })
 
 const movePost = (path) => {
-  console.log(postLink);
+  (postLink);
   router.push(postLink.value(path))
 }
 

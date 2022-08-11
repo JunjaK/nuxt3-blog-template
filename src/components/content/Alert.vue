@@ -10,7 +10,7 @@ const props = defineProps({
   }
 })
 
-console.log(props);
+(props);
 const colorType = {
   warning: ['text-gray-200', 'bg-amber-600'],
   info: ['text-gray-200', 'bg-sky-600'],

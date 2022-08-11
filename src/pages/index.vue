@@ -22,7 +22,7 @@ export default {
   name: 'MainPage',
   layout: 'about',
   created(){
-    console.log('test');
+    ('test');
   }
 }
 

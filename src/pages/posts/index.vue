@@ -52,7 +52,7 @@ export default {
       return list
     },
     searchContent() {
-      console.log('todo Search', this.typedText);
+      ('todo Search', this.typedText);
     }
   },
 }
