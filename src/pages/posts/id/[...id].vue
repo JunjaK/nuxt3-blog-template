@@ -128,7 +128,7 @@ export default {
         utterances.onload = () => {
           setTimeout(() => {
             this.commentLoading = false
-          }, 1000)
+          })
         }
         utterances.src = 'https://utteranc.es/client.js'
         utterances.setAttribute("repo", this.utterancesConfig.repo);
