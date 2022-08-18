@@ -9,9 +9,9 @@
       최근 게시물
     </div>
     <div>
-      recommend, pinned 
+      recommend, pinned
     </div>
-  
+
   </div>
 </div>
 </template>
@@ -21,9 +21,7 @@
 export default {
   name: 'MainPage',
   layout: 'about',
-  created(){
-    ('test');
-  }
+  created(){}
 }
 
 </script>

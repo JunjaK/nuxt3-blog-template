@@ -42,6 +42,7 @@ export default {
       created: null,
       utterancesConfig: null,
       commentLoading: true,
+      githubToken: null,
     }
   },
   async created() {
@@ -52,6 +53,7 @@ export default {
     this.doc = data
     this.tags = data.tags.split(',')
     this.created = data.created
+    this.githubToken = useRuntimeConfig().githubToken
 
     await this.checkIssueExsit()
   },
@@ -82,7 +84,7 @@ export default {
       console.log('createIssue', issueTitle);
       const { data, error } = await useLazyAsyncData('create', () => $fetch('/github-api/repos/JunjaK/nuxt3-blog-template/issues', {
         headers: {
-          Authorization: 'Bearer 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',
+          Authorization: `Bearer ${this.githubToken}`,
           Accept: 'application/vnd.github+json'
         },
         method: 'POST',
