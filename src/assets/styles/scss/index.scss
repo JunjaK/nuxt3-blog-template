@@ -37,6 +37,17 @@
       height: 194px;
     }
   }
+  .tags-wrapper {
+    @apply flex justify-center;
+    .tags-container {
+      width: 486px;
+
+      @apply sm:w-8/12 ; 
+    }
+  }
+  .btn {
+    text-transform: unset !important;
+  }
 }
 
 @layer components {

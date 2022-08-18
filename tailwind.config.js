@@ -1,5 +1,20 @@
 module.exports = {
   theme: {
+    screens: {
+      'sm': [
+        {'max': '576px'}
+      ],
+      'md': [
+        // Sidebar appears at 768px, so revert to `sm:` styles between 768px
+        // and 868px, after which the main content area is wide enough again to
+        // apply the `md:` styles.
+        {'min': '577px', 'max': '876px'},
+      ],
+      'lg': [
+        {'min': '877px', "max": '1200px'}
+      ],
+      'xl': [{'min': '1201px'}],
+    },
     container: {
       center: true,
     },

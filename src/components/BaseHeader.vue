@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-evenly tabs  sticky top-0 bg-base-400">
+  <div class="flex justify-evenly tabs sticky top-0 bg-base-400">
     <a v-for="(tab) in tabState.tabList" :class="['tab', 'text-xl', isTabActive(tab.name)]" :key="tab.name"
       @click="clickNav(tab)">
       {{ tab.name }}
