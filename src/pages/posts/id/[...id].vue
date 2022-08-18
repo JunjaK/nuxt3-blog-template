@@ -33,8 +33,6 @@
 </template>
 
 <script>
-import Gitalk from 'gitalk'
-
 export default {
   name: 'ContentDocs',
   data() {
