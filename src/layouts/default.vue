@@ -12,7 +12,7 @@
 </template>
 
 <style lang="scss" scoped>
-.layout-content { 
+.layout-content {
   min-height: calc(100vh - 252px);
 }
 </style>

@@ -33,16 +33,14 @@
   .comment-container{
     width: 100%;
     @apply bg-zinc-800 rounded-lg;
-    .commentLoading{
-      height: 194px;
-    }
   }
+
   .tags-wrapper {
     @apply flex justify-center;
     .tags-container {
       width: 486px;
 
-      @apply sm:w-8/12 ; 
+      @apply sm:w-8/12 ;
     }
   }
   .btn {
@@ -66,4 +64,9 @@
 }
 .btn {
 
+}
+
+
+.detail-content {
+  min-height: calc(100vh - 284px);
 }
