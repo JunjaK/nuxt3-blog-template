@@ -62,7 +62,7 @@ export default {
       this.$router.push(`/tags/id/${tag}`)
     },
     async checkIssueExsit() {
-      const { data, error } = await useLazyAsyncData('count', () => $fetch('/github-api/repos/JunjaK/nuxt3-blog-template/issues', {
+      const { data, error } = await useLazyAsyncData('count', () => $fetch('https://api.github.com/repos/JunjaK/nuxt3-blog-template/issues', {
         method: 'GET'
       }))
 
@@ -82,7 +82,7 @@ export default {
     async createIssue(issueTitle) {
 
       console.log('createIssue', issueTitle);
-      const { data, error } = await useLazyAsyncData('create', () => $fetch('/github-api/repos/JunjaK/nuxt3-blog-template/issues', {
+      const { data, error } = await useLazyAsyncData('create', () => $fetch('https://api.github.com/repos/JunjaK/nuxt3-blog-template/issues', {
         headers: {
           Authorization: `Bearer ${this.githubToken}`,
           Accept: 'application/vnd.github+json'

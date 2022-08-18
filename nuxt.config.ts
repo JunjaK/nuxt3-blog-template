@@ -64,12 +64,13 @@ export default defineNuxtConfig({
   },
   vite: {
     server: {
-        proxy: {
-            '/github-api': {
-                target: 'https://api.github.com',
-                changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/github-api/, '')
-            }
+      proxy: {
+        '/github-api': {
+          target: 'https://api.github.com',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/github-api/, '')
         }
+      }
     }
-}})
+  }
+})
