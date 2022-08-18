@@ -82,7 +82,7 @@ export default {
       console.log('createIssue', issueTitle);
       const { data, error } = await useLazyAsyncData('create', () => $fetch('/github-api/repos/JunjaK/nuxt3-blog-template/issues', {
         headers: {
-          Authorization: 'Bearer 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',
+          Authorization: 'Bearer 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',
           Accept: 'application/vnd.github+json'
         },
         method: 'POST',
