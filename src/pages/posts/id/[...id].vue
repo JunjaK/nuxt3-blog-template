@@ -22,13 +22,18 @@
       </ContentRenderer>
     </article>
     <div class="divider"></div>
-    <div id="gitalk-container"></div>
+    <div class="comment-container">
+      <div v-show="!commentLoading" ref="vueUtterances">
+        <!-- utterances script here -->
+      </div>
+      <div v-show="commentLoading" class="comment-loading-div">
+      </div>
+    </div>
   </main>
 </template>
 
 <script>
 import Gitalk from 'gitalk'
-
 
 export default {
   name: 'ContentDocs',
@@ -37,6 +42,8 @@ export default {
       doc: null,
       tags: [],
       created: null,
+      utterancesConfig: null,
+      commentLoading: true,
     }
   },
   async created() {
@@ -56,15 +63,12 @@ export default {
     },
     async checkIssueExsit() {
       const { data, error } = await useLazyAsyncData('count', () => $fetch('/github-api/repos/JunjaK/nuxt3-blog-template/issues', {
-        headers: { Authorization: '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' },
         method: 'GET'
       }))
 
       if (error.value) return
-      (data.value, this.doc);
       const postTitle = this.doc.title ?? (this.doc?.body?.children[0].children[0].value ?? '')
       const issueTitle = `${postTitle}_${this.doc.created}`
-      (postTitle);
       const checkIssue = data.value.find((e) => e.title === issueTitle)
       if (checkIssue) {
         const issueNum = checkIssue.number
@@ -77,9 +81,10 @@ export default {
     },
     async createIssue(issueTitle) {
 
+      console.log('createIssue', issueTitle);
       const { data, error } = await useLazyAsyncData('create', () => $fetch('/github-api/repos/JunjaK/nuxt3-blog-template/issues', {
         headers: {
-          Authorization: 'Bearer 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',
+          Authorization: 'Bearer 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',
           Accept: 'application/vnd.github+json'
         },
         method: 'POST',
@@ -89,24 +94,30 @@ export default {
           assignees: ['JunjaK']
         }
       }))
-      ('create res', data, error);
 
-      return 
+      console.log(data.value, error.value);
+
+      return data.value.number
     },
     async bindGithubComment(issueNum) {
-      const gitalk = new Gitalk({
-        clientID: 'e1e6a662858724bddf1c',
-        clientSecret: '4db6fdcc5181be6e7aadaa04e3a3d747d9d76a44',
-        repo: 'nuxt3-blog-template',      // The repository of store comments,
-        owner: 'Junjak',
-        admin: ['Junjak'],
-        id: window.location.href,
-        number: issueNum,
-        distractionFreeMode: false  // Facebook-like distraction free mode
+      this.utterancesConfig = {
+        repo: 'Junjak/nuxt3-blog-template',
+        theme: "photon-dark",
+        issueNumber: issueNum
+      }
+
+      this.$nextTick(() => {
+        let utterances = document.createElement("script");
+        utterances.async = true;
+        utterances.setAttribute("src", "https://utteranc.es/client.js");
+        utterances.setAttribute("repo", this.utterancesConfig.repo);
+        utterances.setAttribute("issue-number", this.utterancesConfig.issueNumber);
+        utterances.setAttribute("label", this.utterancesConfig.label);
+        utterances.setAttribute("theme", this.utterancesConfig.theme);
+        utterances.setAttribute("crossorigin", "anonymous");
+        this.$refs.vueUtterances.appendChild(utterances);
+        this.commentLoading = false
       })
-      setTimeout(() => {
-        gitalk.render('gitalk-container')
-      }, 500);
     }
   },
 }
